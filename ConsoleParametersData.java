@@ -1,19 +1,19 @@
 public class ConsoleParametersData
 {
-    private final String SortArg = "--sort";
-    private final String SortArgAlternative = "-s";
-    private final String OrderArg = "--order";
-    private final String StatArg = "--stat";
-    private final String OutputArg = "--output";
-    private final String OutputArgAlternative = "-o";
-    private final String PathArg = "--path";
+    private final String SORT_ARG = "--sort";
+    private final String SORT_ARG_ALTERNATIVE = "-s";
+    private final String ORDER_ARG = "--order";
+    private final String STAT_ARG = "--stat";
+    private final String OUTPUT_ARG = "--output";
+    private final String OUTPUT_ARG_ALTERNATIVE = "-o";
+    private final String PATH_ARG = "--path";
     
-    private final String SortNameValue = "name";
-    private final String SortSalaryValue = "salary";
-    private final String OrderAscValue = "asc";
-    private final String OrderDescValue = "desc";
-    private final String OutputConsoleValue = "console";
-    private final String OutputFileValue = "file";
+    private final String SORT_NAME_VALUE = "name";
+    private final String SORT_SALARY_VALUE = "salary";
+    private final String ORDER_ASC_VALUE = "asc";
+    private final String ORDER_DESC_VALUE = "desc";
+    private final String OUTPUT_CONSOLE_VALUE = "console";
+    private final String OUTPUT_FILE_VALUE = "file";
 
     public boolean IsSort;
     public boolean IsSortByName;
@@ -32,25 +32,25 @@ public class ConsoleParametersData
         
             switch (argParts[0].toLowerCase()) 
             {
-                case SortArg:
-                case SortArgAlternative:
+                case SORT_ARG:
+                case SORT_ARG_ALTERNATIVE:
                     TrySetSortArg(arg.toLowerCase());
                     break;
                     
-                case OrderArg:
+                case ORDER_ARG:
                     TrySetOrderArg(arg.toLowerCase());
                     break;
                     
-                case StatArg:
+                case STAT_ARG:
                     IsStat = true;
                     break;
                     
-                case OutputArg:
-                case OutputArgAlternative:
+                case OUTPUT_ARG:
+                case OUTPUT_ARG_ALTERNATIVE:
                     TrySetOutputArg(arg.toLowerCase());
                     break;
                     
-                case PathArg:
+                case PATH_ARG:
                     TrySetPathArg(arg.toLowerCase());
                     break;
                     
@@ -105,13 +105,13 @@ public class ConsoleParametersData
             throw new Exception("Invalid output arg");
         }
         
-        if (!outputParts[1].equals(OutputConsoleValue) && !outputParts[1].equals(OutputFileValue))
+        if (!outputParts[1].equals(OUTPUT_CONSOLE_VALUE) && !outputParts[1].equals(OUTPUT_FILE_VALUE))
         {
             throw new Exception("Invalid output arg");
         }
         
         IsOutput = true;
-        IsConsoleOutput = outputParts[1].equals(OutputConsoleValue);
+        IsConsoleOutput = outputParts[1].equals(OUTPUT_CONSOLE_VALUE);
     }
     
     private void TrySetOrderArg(String arg) throws Exception
@@ -123,13 +123,13 @@ public class ConsoleParametersData
             throw new Exception("Invalid order arg");
         }
         
-        if (!orderParts[1].equals(OrderAscValue) &&  !orderParts[1].equals(OrderDescValue))
+        if (!orderParts[1].equals(ORDER_ASC_VALUE) &&  !orderParts[1].equals(ORDER_DESC_VALUE))
         {
             throw new Exception("Invalid order arg");
         }
         
         IsOrder = true;
-        IsAscOrder = orderParts[1].equals(OrderAscValue);
+        IsAscOrder = orderParts[1].equals(ORDER_ASC_VALUE);
     }
     
     private void TrySetSortArg(String arg) throws Exception
@@ -141,12 +141,12 @@ public class ConsoleParametersData
             throw new Exception("Invalid sort arg");
         }
         
-        if (!sortParts[1].equals(SortNameValue) &&  !sortParts[1].equals(SortSalaryValue))
+        if (!sortParts[1].equals(SORT_NAME_VALUE) &&  !sortParts[1].equals(SORT_SALARY_VALUE))
         {
             throw new Exception("Invalid sort arg");
         }
         
         IsSort = true;
-        IsSortByName = sortParts[1].equals(SortNameValue);
+        IsSortByName = sortParts[1].equals(SORT_NAME_VALUE);
     }
 }
